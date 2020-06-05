@@ -11,7 +11,6 @@ const fetchWeather = async location => {
   const response = await fetch(`/weather?address=${location}`);
   const {
     location: weatherLocation,
-    // address: weatherAddress,
     forecast: weatherForecast,
     error
   } = await response.json();
