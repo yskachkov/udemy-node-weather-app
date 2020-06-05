@@ -45,6 +45,10 @@ button {
   cursor: pointer;
 }
 
+p {
+  white-space: pre;
+}
+
 footer {
   margin-top: 16px;
   border-top: 1px solid #eeeeee;

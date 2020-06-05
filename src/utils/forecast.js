@@ -8,19 +8,26 @@ const forecast = async (latitude, longitude) => {
       data: {
         current: {
           temperature,
-          feelslike,
-          weather_descriptions: weatherDescriptions
+          humidity,
+          weather_descriptions: weatherDescriptions,
+          wind_speed: windSpeed,
+          observation_time: observationTime
         }
       }
     } = await axios.get(url, {
       params: {
         'access_key': 'faf23e68427125134387b79ec1ac053b',
         'query': `${latitude},${longitude}`,
-        // 'units': 'f'
       }
     });
 
-    return `${weatherDescriptions[0]}. It's currently ${temperature} degrees out. It feels like ${feelslike} degrees out`;
+    return `
+    ${weatherDescriptions[0]}.
+    It's currently ${temperature} degrees out.
+    
+    The wind speed is ${windSpeed} and the humidity is ${humidity}%.
+    
+    Observation time: ${observationTime}.`;
   } catch (err) {
     // TODO: Add error handling
     console.log(err);
